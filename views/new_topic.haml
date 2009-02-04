@@ -1,0 +1,15 @@
+%form{:action=>"/forums/#{@forum.id}/topics", :method=>:post}
+  %table
+    %tr
+      %td
+        %label{:for=>:name} Title
+      %td
+        %input{:type=>:textbox, :name=>:title}
+    %tr
+      %td
+        %label{:for=>:body} Body
+      %td
+        %textarea{:name=>:body, :rows=>5}
+    %tr
+      %td{:colspan=>2}
+        %input{:type=>:submit}

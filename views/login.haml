@@ -1,0 +1,17 @@
+%form{:action=>'/login', :method=>:post}
+  %table
+    %tr
+      %td
+        %label{:for=>:login} Login
+      %td
+        %input{:type=>:textbox, :name=>:login}
+    %tr
+      %td
+        %label{:for=>:password} Password
+      %td
+        %input{:type=>:textbox, :name=>:password}
+    %tr
+      %td{:colspan=>2}
+        %input{:type=>:submit, :value=>'Login'}
+
+%a{:href=>'/users/new'} Register

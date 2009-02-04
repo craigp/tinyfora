@@ -1,0 +1,12 @@
+%h4= "#{@topic.forum.name} - #{@topic.forum.description}"
+%h3= @topic.title
+%ul
+  - unless @topic.posts.empty?
+    - @topic.posts.each do |post|
+      %li= "#{post.body} - #{post.user.inspect}"
+  - else
+    %li No posts for this topic.
+  
+%a{:href=>"/forums/#{@topic.forum.id}/topics/#{@topic.id}/posts/new"} New post
+%br
+%a{:href=>"/forums/#{@topic.forum.id}"} Back to forum

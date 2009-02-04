@@ -1,0 +1,11 @@
+%h3 Forums
+%ul
+  - if @forums.length > 0
+    - @forums.each do |f|
+      %li
+        %a{:href=>"/forums/#{f.id}"}= f.name
+  - else
+    %li
+      There are no forums.
+      %a{:href=>'/forums/new'} create one
+      

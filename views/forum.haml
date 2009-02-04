@@ -1,0 +1,11 @@
+%h3= @forum.name
+%p= @forum.description
+%ul
+  - @forum.topics.each do |topic|
+    %li
+      %a{:href=>"/forums/#{@forum.id}/topics/#{topic.id}"}= topic.title
+%ul
+  %li
+    %a{:href=>"/forums/#{@forum.id}/topics/new"} New topic
+  %li
+    %a{:href=>"/forums"} Back to forums
