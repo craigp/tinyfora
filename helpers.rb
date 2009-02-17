@@ -18,7 +18,10 @@ helpers do
   
   def auth(login, password)
     user = User.first(:login => login)
-    return false unless user
+    unless user
+      unauth
+      return false
+    end
     session[:user] = user and return true if user.password == encrypt_password(user.salt, password)
   end
   
