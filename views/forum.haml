@@ -5,7 +5,7 @@
     - @forum.topics.each do |topic|
       %li
         %a{:href=>"/forums/#{@forum.id}/topics/#{topic.id}"}= topic.title
-        ="(#{topic.posts.length} #{topic.posts.length > 1 ? "posts" : "post"})"
+        ="(#{topic.posts.length} #{topic.posts.length == 1 ? "post" : "posts"})"
   - else
     %li There are no topics in this forum
 %ul.actions

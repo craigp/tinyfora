@@ -4,10 +4,10 @@
     - @forums.each do |f|
       %li
         %a.forum-name{:href=>"/forums/#{f.id}"}= f.name
-        = "(#{f.topics.length} #{f.topics.length > 1 ? "topics" : "topic"})"
+        = "(#{f.topics.length} #{f.topics.length == 1 ? "topic" : "topics"})"
   - else
     %li
-      There are no forums.
+      There are no forums
 %ul.actions
   %li
     %a{:href=>'/forums/new'} Create forum
