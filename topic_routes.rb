@@ -17,7 +17,7 @@ post '/forums/:id/topics' do
   @forum = get_forum(params[:id])
   status 404 and return "Forum not found" unless @forum
   @topic = @forum.topics.create(:title => params[:title], :created_at => Time.now)
-  @topic.posts.create(:body => params[:body])
+  @topic.posts.create(:body => params[:body], :created_at => Time.now, :user => current_user)
   redirect "/forums/#{@forum.id}/topics/#{@topic.id}"
 end
 

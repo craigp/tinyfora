@@ -1,7 +1,7 @@
 helpers do
     
   def partial(page, options={})
-    haml page, options.merge!(:layout => false) if authenticated?
+    haml page, options.merge!(:layout => false)
   end
 
   def authenticated?; session[:user]; end
@@ -24,6 +24,8 @@ helpers do
     end
     session[:user] = user and return true if user.password == encrypt_password(user.salt, password)
   end
+  
+  def current_user; return session[:user]; end
   
   def unauth; session.delete(:user); end
   

@@ -1,1 +1,6 @@
-%a{:href=>'/logout'} Logout
+- if authenticated?
+  %a{:href=>'/logout'}= "Logout #{session[:user].login}"
+- else
+  %a{:href=>'/login'} Login
+  |
+  %a{:href=>'/users/new'} Register

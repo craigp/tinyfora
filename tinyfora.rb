@@ -16,14 +16,15 @@ configure do
 end
 
 before do
-  redirect '/login' unless authenticated? unless env['REQUEST_PATH'] =~ /^\/login|users|stylesheets|favicon/
+  redirect '/login' unless authenticated? unless env['REQUEST_PATH'] =~ /^\/login|users|style|favicon/
 end
 
 get '/' do
   'Welcome to TinyFora'
 end
 
-get '/style.css' do
+#get '/style.css' do
+get %r{^/style\d+?.css} do
   content_type 'text/css', :charset => 'utf-8'
   sass :style
 end

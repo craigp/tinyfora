@@ -1,9 +1,13 @@
-%h3= @forum.name
-%p= @forum.description
+%h3= "#{@forum.name} - #{@forum.description}"
 %ul
-  - @forum.topics.each do |topic|
-    %li
-      %a{:href=>"/forums/#{@forum.id}/topics/#{topic.id}"}= topic.title
+  %li.heading Topics
+  - if @forum.topics.length > 0
+    - @forum.topics.each do |topic|
+      %li
+        %a{:href=>"/forums/#{@forum.id}/topics/#{topic.id}"}= topic.title
+        ="(#{topic.posts.length} #{topic.posts.length > 1 ? "posts" : "post"})"
+  - else
+    %li There are no topics in this forum
 %ul.actions
   %li
     %a{:href=>"/forums/#{@forum.id}/topics/new"} New topic
