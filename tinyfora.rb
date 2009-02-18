@@ -23,7 +23,6 @@ get '/' do
   'Welcome to TinyFora'
 end
 
-#get '/style.css' do
 get %r{^/style\d+?.css} do
   content_type 'text/css', :charset => 'utf-8'
   sass :style
