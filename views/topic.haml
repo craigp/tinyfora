@@ -1,12 +1,12 @@
-%h4= "#{@topic.forum.name} - #{@topic.forum.description}"
-%h3= @topic.title
+%h3= "#{@topic.forum.name} - #{@topic.forum.description}"
+%h4= @topic.title
 %ul
   - unless @topic.posts.empty?
     - @topic.posts.each do |post|
       %li= "#{post.body} - #{post.user.login}"
   - else
     %li No posts for this topic.
-%ul
+%ul.actions
   %li
     %a{:href=>"/forums/#{@topic.forum.id}/topics/#{@topic.id}/posts/new"} New post
   %li

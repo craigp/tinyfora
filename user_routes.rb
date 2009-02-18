@@ -1,6 +1,7 @@
 require 'digest/sha1'
 
 get '/login' do
+  redirect '/forums' if authenticated?
   haml :login
 end
 
@@ -14,6 +15,7 @@ get '/logout' do
 end
 
 get '/users/new' do
+  redirect '/forums' if authenticated?
   haml :new_user
 end
 

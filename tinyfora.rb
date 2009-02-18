@@ -12,7 +12,7 @@ configure do
   require 'models'
   DataMapper.setup(:default, "sqlite3:///#{Dir.pwd}/tinyfora.db")
   DataMapper::Logger.new(STDOUT, :debug)
-  DataMapper.auto_migrate! unless File.exists?('tinyfora.db')  
+  DataMapper.auto_migrate! unless File.exists?('tinyfora.db')
 end
 
 before do
@@ -23,8 +23,14 @@ get '/' do
   'Welcome to TinyFora'
 end
 
-get '/stylesheets/style.css' do
+get '/style.css' do
+  content_type 'text/css', :charset => 'utf-8'
   sass :style
+end
+
+get %r{^/images/(.+)$} do
+  content_type 'image/gif'
+  open(File.join(Dir.pwd, "views", "images", params[:captures][0]), "r").read
 end
 
 %w(helpers.rb user_routes.rb forum_routes.rb topic_routes.rb post_routes.rb).each { |f| load f }

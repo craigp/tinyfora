@@ -4,7 +4,7 @@
   - @forum.topics.each do |topic|
     %li
       %a{:href=>"/forums/#{@forum.id}/topics/#{topic.id}"}= topic.title
-%ul
+%ul.actions
   %li
     %a{:href=>"/forums/#{@forum.id}/topics/new"} New topic
   %li

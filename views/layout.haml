@@ -2,7 +2,8 @@
 %html
   %head
     %title TinyFora
-    %link{:rel=>'stylesheet', :href=>'/stylesheets/style.css', :type => "text/css"}
+    %link{:rel=>'stylesheet', :href=>'/style.css', :type => "text/css"}
   %body
+    #header= partial(:_header)
     #body= yield
     #footer= partial(:_footer)
