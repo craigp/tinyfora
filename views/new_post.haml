@@ -1,10 +1,10 @@
+= partial(:_forum_header)
+= partial(:_topic_header)
 %form{:action=>"/forums/#{@topic.forum.id}/topics/#{@topic.id}/posts", :method=>:post}
-  %table
-    %tr
-      %td
-        %label{:for=>:body} Body
-      %td
-        %textarea{:name=>:body, :rows=>5}
-    %tr
-      %td{:colspan=>2}
-        %input{:type=>:submit,:value=>'Post'}
+  %ul
+    %li
+      %label{:for=>:body} Body
+    %li
+      %textarea{:name=>:body, :rows=>5}
+    %li
+      %input{:type=>:submit,:value=>'Post'}

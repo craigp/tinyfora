@@ -1,13 +1,13 @@
 %form{:action=>'/login', :method=>:post}
-  %dl
-    %dt
+  %ul
+    %li
       %label{:for=>:login} Login
-    %dd
+    %li
       %input{:type=>:textbox, :name=>:login}
-    %dt
+    %li
       %label{:for=>:password} Password
-    %dd
+    %li
       %input{:type=>:password, :name=>:password}
-    %dd
+    %li
       %input{:type=>:submit, :value=>'Login'}
 

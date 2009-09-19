@@ -1,9 +1,11 @@
-%h3= "#{@topic.forum.name} - #{@topic.forum.description}"
-%h4= @topic.title
+= partial(:_forum_header)
+= partial(:_topic_header)
 %ul
   - unless @topic.posts.empty?
     - @topic.posts.each do |post|
-      %li= "#{post.body} - #{post.user.login}"
+      %li.post
+        %div.post-body= sanitize(post.body)
+        %div.poster= "posted by #{post.user.login} #{time_ago_in_words(post.created_at)} ago"
   - else
     %li No posts for this topic.
 %ul.actions

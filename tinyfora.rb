@@ -20,6 +20,7 @@ before do
 end
 
 get '/' do
+  redirect '/forums' if authenticated?
   'Welcome to TinyFora'
 end
 

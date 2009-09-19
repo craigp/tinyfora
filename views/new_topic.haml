@@ -1,15 +1,14 @@
+= partial(:_forum_header)
+%h4= "New Topic"
 %form{:action=>"/forums/#{@forum.id}/topics", :method=>:post}
-  %table
-    %tr
-      %td
-        %label{:for=>:name} Title
-      %td
-        %input{:type=>:textbox, :name=>:title}
-    %tr
-      %td
-        %label{:for=>:body} Body
-      %td
-        %textarea{:name=>:body, :rows=>5}
-    %tr
-      %td{:colspan=>2}
-        %input{:type=>:submit,:value=>'Post'}
+  %ul
+    %li
+      %label{:for=>:name} Title
+    %li
+      %input{:type=>:textbox, :name=>:title}
+    %li
+      %label{:for=>:body} Body
+    %li
+      %textarea{:name=>:body, :rows=>5}
+    %li
+      %input{:type=>:submit,:value=>'Post'}

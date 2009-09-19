@@ -1,6 +1,8 @@
 # new
 get %r{^/forums/(\d+)/topics/(\d+)/posts/new$} do
   @topic = get_topic(params[:captures][1])
+  status 404 and return "Topic not found" unless @topic
+  @forum = @topic.forum
   haml :new_post
 end
 
