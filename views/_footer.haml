@@ -1,5 +1,5 @@
 - if authenticated?
-  %a{:href=>'/logout'}= "Logout #{session[:user].login}"
+  %a{:href=>'/logout'} Logout #{session[:user].login}
 - else
   %a{:href=>'/login'} Login
   or

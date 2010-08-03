@@ -1,7 +1,7 @@
 class Forum
   include DataMapper::Resource
 
-  property :id, Integer, :serial => true
+  property :id, Serial
   property :name, String, :key => true
   property :description, String
   property :created_at, DateTime
@@ -13,11 +13,11 @@ end
 class Topic
   include DataMapper::Resource
   
-  property :id, Integer, :serial => true
+  property :id, Serial
   property :title, String, :key => true
   property :created_at, DateTime
   
-  belongs_to :forum, :class_name => 'Forum' # weird bug in DataMapper
+  belongs_to :forum, :model => 'Forum' # weird bug in DataMapper
   has n, :posts
   
 end

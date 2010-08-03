@@ -5,7 +5,7 @@
     - @topic.posts.each do |post|
       %li.post
         %div.post-body= sanitize(post.body)
-        %div.poster= "posted by #{post.user.login} #{time_ago_in_words(post.created_at)} ago"
+        %div.poster= "posted by #{post.user.login} at #{post.created_at} ago"
   - else
     %li No posts for this topic.
 %ul.actions

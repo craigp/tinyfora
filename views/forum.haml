@@ -1,12 +1,12 @@
 = partial(:_forum_header)
-%h4= "Topics"
+%h4 Topics
 %ul
   - if @forum.topics.length > 0
     - @forum.topics.each do |topic|
       %li.post
         %a{:href=>"/forums/#{@forum.id}/topics/#{topic.id}"}= topic.title
         %span.item-count= "(#{topic.posts.length} #{topic.posts.length == 1 ? "post" : "posts"})"
-        %div.poster= "last post by #{topic.posts.last.user.login} #{time_ago_in_words(topic.posts.last.created_at)} ago"
+        %div.poster= "last post by #{topic.posts.last.user.login} at #{topic.posts.last.created_at}"
   - else
     %li There are no topics in this forum
 %ul.actions

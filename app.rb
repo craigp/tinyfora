@@ -4,13 +4,16 @@ $:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
+require 'sinatra/reloader' if development?
 
-use Rack::ShowExceptions
+require 'models'
+
+# use Rack::ShowExceptions
 
 configure do
   enable :sessions
-  require 'models'
-  DataMapper.setup(:default, "sqlite3:///#{Dir.pwd}/tinyfora.db")
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/tinyfora.db")
+  # DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/tinyfora.db")
   DataMapper::Logger.new(STDOUT, :debug)
   DataMapper.auto_migrate! unless File.exists?('tinyfora.db')
 end
